@@ -16,12 +16,12 @@ body {
   $lineHeight: 1.25;
   $textSize: $fontSize * $lineHeight;
 
-  $borderWidth: 1px;
+  $borderWidth: 0;
 
   $backgroundColor: rgba(0, 0, 255, 0.061803399);
   $compositionColor: rgba(255, 255, 255, 1);
 
-  $radius: 8px;
+  $radius: 4px;
 
   background-color: $backgroundColor;
 
@@ -29,6 +29,13 @@ body {
 
     margin: $verticalSpace auto;
     width: $width;
+
+    border-radius: $radius;
+    border: 1px solid black;
+
+    overflow: hidden;
+
+    background-color: $compositionColor;
 
     .row {
       margin: 0;
@@ -39,8 +46,6 @@ body {
         visibility: hidden;
         margin: 0;
         padding: ($cell - $textSize - 2 * $borderWidth) / 2;
-        border: $borderWidth solid $backgroundColor;
-        border-radius: $radius;
         background-color: $compositionColor;
         width: $textSize;
         height: $textSize;
