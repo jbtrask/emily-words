@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.composition {
+body {
 
   $rows: 8;
   $columns: 12;
@@ -10,33 +10,50 @@
   $width: 960px;
   $cell: $width / $columns;
 
-  $verticalSpace: 61.8px;
+  $verticalSpace: 40px;
 
   $fontSize: 24px;
   $lineHeight: 1.25;
   $textSize: $fontSize * $lineHeight;
 
-  margin: $verticalSpace auto;
-  width: $width;
+  $borderWidth: 1px;
 
-  .row {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    list-style: none;
-    .letter {
+  $backgroundColor: rgba(0, 0, 255, 0.061803399);
+  $compositionColor: rgba(255, 255, 255, 1);
+
+  $radius: 8px;
+
+  background-color: $backgroundColor;
+
+  .composition {
+
+    margin: $verticalSpace auto;
+    width: $width;
+
+    .row {
       margin: 0;
-      padding: ($cell - $textSize) / 2;
-      width: $textSize;
-      height: $textSize;
-      min-width: $textSize;
-      min-height: $textSize;
-      text-align: center;
-      float: left;
-//      outline: 1px dotted #ccc;
-      font-size: $fontSize;
-      line-height: $lineHeight;
+      padding: 0;
+      overflow: hidden;
+      list-style: none;
+      .letter {
+        visibility: hidden;
+        margin: 0;
+        padding: ($cell - $textSize - 2 * $borderWidth) / 2;
+        border: $borderWidth solid $backgroundColor;
+        border-radius: $radius;
+        background-color: $compositionColor;
+        width: $textSize;
+        height: $textSize;
+        min-width: $textSize;
+        min-height: $textSize;
+        text-align: center;
+        float: left;
+        font-size: $fontSize;
+        line-height: $lineHeight;
+        font-family: "Open Sans";
+      }
     }
+
   }
 
 }

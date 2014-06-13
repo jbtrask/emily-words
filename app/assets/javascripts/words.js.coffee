@@ -4,4 +4,9 @@
 
 $(document).on 'ready', ->
 
-  
+  WebFont.load
+      google:
+        families: ['Open Sans']
+      active: ->
+        $('.letter').css({visibility: 'visible', opacity: '0.0'}).animate({opacity: 1.0}, 1618.03399)
+
