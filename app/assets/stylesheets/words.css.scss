@@ -16,9 +16,14 @@ body {
   $lineHeight: 1.25;
   $textSize: $fontSize * $lineHeight;
 
-  $borderWidth: 0;
+  $borderWidth: 4px;
+  $emilyBorderColor: black;
+  $emilyBorderRadius: 1px;
 
-  $backgroundColor: rgba(0, 0, 255, 0.061803399);
+  $tint: 0.161803399;
+  $tintShade: 15%;
+
+  $backgroundColor: rgba(0, 0, 255, $tint);
   $compositionColor: rgba(255, 255, 255, 1);
 
   $radius: 4px;
@@ -56,7 +61,24 @@ body {
         font-size: $fontSize;
         line-height: $lineHeight;
         font-family: "Open Sans";
+        border: $borderWidth solid $compositionColor;
+        border-left: none;
       }
+      &[data-idx="2"] {
+        .letter.across {
+          background-color: darken($backgroundColor, $tintShade);
+          border-color: $emilyBorderColor;
+          border-radius: $emilyBorderRadius;
+          &:first-child {
+            border-left: $borderWidth solid $emilyBorderColor;
+          }
+        }
+        .letter[data-idx="5"] {
+          width: $textSize - $borderWidth;
+          min-width: $textSize - $borderWidth;
+        }
+      }
+
     }
 
   }
