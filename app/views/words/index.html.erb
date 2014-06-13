@@ -1,0 +1,14 @@
+<div class="composition">
+  <% WordsController::LETTERS.each_with_index do |row, row_idx| %>
+    <ul class="row" data-id="<%= row_idx %>">
+      <% row.each_with_index do |letter, letter_idx| %>
+        <li class="letter" data-id="<%= letter_idx %>"><%= letter unless '_' == letter %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<script>
+  var words = <%= WordsController::WORDS.inspect.html_safe %>;
+  var letters = <%= WordsController::LETTERS.inspect.html_safe %>;
+</script>
